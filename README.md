@@ -15,14 +15,14 @@ _Our aim was to determine how the trends and fluctuations of vertebrate populati
 # Preprint
 The manuscript is available as a preprint on bioRxiv.
 
-__Daskalova, G.N., Myers-Smith, I.H. & Godlee, J.L. (2018) <a href="https://www.biorxiv.org/content/10.1101/272898v3" target="_blank">Rarity and conservation status do not predict vertebrate population trends.</a> bioRxiv. https://doi.org/10.1101/272898 __
+__Daskalova, G.N., Myers-Smith, I.H. & Godlee, J.L. (2018) Rarity and conservation status do not predict vertebrate population trends. bioRxiv. https://doi.org/10.1101/272898__
 
 # Workflow
 For a detailed explanation of the methods, please see the preprint.
 
 We analyzed vertebrate population time-series from the Living Planet Database (133,092 records) covering the period between 1970 and 2014. These time-series represent repeated monitoring surveys of the number of individuals in a given area (species’ abundance over time), hereafter called “populations”. We focus on two aspects of population change – overall changes in abundance over time (population trend) and abundance variability over time (population fluctuations). 
 
-In the first stage of our analyses, we quantified trends and fluctuations for each population using state-space models that account for observation error and random fluctuations36 (Figure S1). 
+In the first stage of our analyses, we quantified trends and fluctuations for each population using state-space models that account for observation error and random fluctuations. 
 
 <p align="center">
   <img src="/img/SI_workflow1.png" width=800 align="middle">
