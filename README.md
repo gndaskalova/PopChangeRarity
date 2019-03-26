@@ -10,180 +10,120 @@ __The aim of this repository is to give reviewers of the manuscript private acce
 #### Contact: Gergana Daskalova gndaskalova@gmail.com
 
 # Aim
-_Our aim was to quantify how populations (trends in numerical abundance) and biodiversity (trends in species richness and community composition) across vertebrate, invertebrate and plant taxa vary according to the timing and magnitude of forest cover change and habitat conversions._
+_Our aim was to determine how the trends and fluctuations of vertebrate populations vary with biogeography, taxa, phylogenetic relationships and across species’ rarity metrics and IUCN conservation and threat categories._
 
 # Preprint
 The manuscript is available as a preprint on bioRxiv.
 
-__Daskalova, G.N., Myers-Smith, I.H. & Godlee, J.L. (2018) Rarity and conservation status do not predict vertebrate population trends. bioRxiv. https://doi.org/10.1101/272898 __
-
-## will update below tomorrow
+__Daskalova, G.N., Myers-Smith, I.H. & Godlee, J.L. (2018) Rarity and conservation status do not predict vertebrate population trends. bioRxiv. https://doi.org/10.1101/272898__
 
 # Workflow
-For a detailed explanation on the methods, please see the preprint.
+For a detailed explanation of the methods, please see the preprint.
+
+We analyzed vertebrate population time-series from the Living Planet Database (133,092 records) covering the period between 1970 and 2014. These time-series represent repeated monitoring surveys of the number of individuals in a given area (species’ abundance over time), hereafter called “populations”. We focus on two aspects of population change – overall changes in abundance over time (population trend) and abundance variability over time (population fluctuations). 
+
+In the first stage of our analyses, we quantified trends and fluctuations for each population using state-space models that account for observation error and random fluctuations. 
 
 <p align="center">
-  <img src="/img/Si_methods_diagram.png" width=800 align="middle">
+  <img src="/img/SI_workflow1.png" width=800 align="middle">
 </p> 
 
-The workflow for one example time series is outlined below. Those steps were then repeated for all population and biodiversity time series included in the analysis.
+_We analyzed vertebrate population time-series from the Living Planet Database (133,092 records) covering the period between 1970 and 2014. These time-series represent repeated monitoring surveys of the number of individuals in a given area (species’ abundance over time), to which we refer as “populations”. Diagram shows one sample population of Red squirrel (Sciurus vulgaris). We quantified two aspects of population change – overall changes in abundance over time (population trend) and abundance variability over time (population fluctuations). We used state-space models that account for observation error and random fluctuations1. See methods for additional details._
+
+
+<p>In the second stage, we modelled the trend and fluctuation estimates from the first stage across latitude, realm, biome, taxa, rarity metrics, phylogenetic relatedness, species’ conservation status and threat type using a Bayesian modelling framework.</p.
 
 <p align="center">
-  <img src="/img/SI_workflow_time_series.png" width=800 align="middle">
-</p> 
+  <img src="/img/SI_workflow2.png" width=800 align="middle">
+</p>
+
+_We modelled the trend and fluctuation estimates from the first stage (Figure S1) across latitude, realm, biome, taxa, rarity metrics, phylogenetic relatedness, species’ conservation status and threat type using a Bayesian modelling framework2. Each model included a species random intercept effect to account for the possible correlation between the trends of populations from the same species. The prior structure (weakly informative priors) was identical across all models except the phylogeny models from the taxonomic patterns section, where the prior structure allowed for an additional phylogeny random effect. See methods for additional details._
 
 # Data
 
 ### Living Planet Database
-The population time series analysed here came from the Living Planet Database, publicly available from http://www.livingplanetindex.org
+The population time-series analysed here come from the Living Planet Database, with the raw data publicly available from http://www.livingplanetindex.org
 
 ### Key data objects within the scripts and what they contain
-_Note that because we cannot make the whole BioTIME database public (see data section above) and because of the size of the files, we can only make our scripts, and not the data outputs they create, publicly available. However, we note that 90% of the raw BioTIME data and all other raw data are already publicly available (see above)._
 
-__`rarefied_medians.RData`__
-Yearly records for species richness and turnover, taxa and biome classification and coordinates of the BioTIME biodiversity time series. Output of Blowes and Supp et al.
+__`LPIdata_Feb2016.csv`__
+Raw Living Planet Database population time-series. Following the data use regulations, we cannot upload the raw data here, but they can be downloaded freely from http://www.livingplanetindex.org .
 
 __`global_mus_scaled.csv`__
-Population change (mu values for overall trend), taxa and biome classification and coordinates of the Living Planet Database time series. Calculated using state-space models in `06-population-models.R`.
+Population change (mu values for overall trend and sigma values for population fluctuations), taxa and biome classification and coordinates of the Living Planet Database time-series. Calculated using state-space models in `03-derive-pop-change-state-space.R`.
 
-__`slopes_richness.RData`__
-Slopes of richness change over time for the BioTIME biodiversity time series. Output of running `06-richness-models.R` with `rarefied_medians.RData`.
+__`global_slopes.csv`__
+Population change (model slopes of population abundance versus time), taxa and biome classification and coordinates of the Living Planet Database time series. Calculated using general linear models in `04-derive-pop-change-linear.R`.
 
-__`mus_luh.RData`__
-Integrated data object containing the amount of population change and the amount of forest loss (over the same time period, using the Land Use Harmonisation Database) for each studied population. Created using the scripts from sections 1-7 below.
+__`IUCNall.csv`__
+Species IUCN conservation status (Red List level), extracted from https://www.iucnredlist.org .
 
-__`lpi_forest_change.RData`__
-Integrated data object containing the amount of population change and the amount of forest cover gain and loss (over the same time period, using the Global Forest Change Database) for each studied population. Created using the scripts from sections 1-7 below.
+__`iucn_sp_habitats_count_global.csv`__
+Species habitat specificity (number of distinct habitat in which each species occurs), calculated using the `rredlist` package in `01-calculate-habspec.R`.
 
-__`biotime_luh_polys_change.RData`__
-Integrated data object containing the amount of richness change and turnover and the amount of forest loss (over the same time period, using the Land Use Harmonisation Database) for each studied population. Created using the scripts from sections 1-7 below.
+__`habspec_profiles.csv`__
+Habitat specificity for species monitored in the UK, derived by surveying species' profiles on the IUCN website https://www.iucnredlist.org .
 
-__`biotime_forest_change.RData`__
-Integrated data object containing the amount of richness change and turnover and the amount of forest cover gain and loss (over the same time period, using the Global Forest Change Database) for each studied population. Created using the scripts from sections 1-7 below.
+__`gbif_ranges_clean.csv`__
+Geographic ranges for species monitored in the UK, quantified based on occurrence records from GBIF in `01-calculate-habspec.R`.
+
+__`bird_ranges.csv`__
+Geographic ranges for bird species, extracted from BirdLife http://datazone.birdlife.org/home .
+
+__`PanTHERIA_1-0_WR05_Aug2008.txt`__
+Geographic ranges for mammal species, downloaded from the PanTHERIA database https://esajournals.onlinelibrary.wiley.com/doi/10.1890/08-1494.1 .
+
+__`threats_lpi.RData`__
+Species' threats, extracted from species' IUCN Red List classification https://www.iucnredlist.org .
 
 # Scripts
 
-_Please note that the majority of the code was written to run on a HPC cluster and thus requires high computing power to successfully run._
+_Please note that the majority of the code requires high computing power to successfully run._
 
-### 1-4. Extract data
+### Calculate habitat specificity and geographic range
 
-__`01-cell-size-sensitivity-luh.R`__
-This script extracts land cover types from the Land Use Harmonisation Database for cells of different sizes to test the sensitity of our findings to observational scale. The amount of forest loss scaled proportionately with cell size, and we conducted all of our analyses using a cell size of approximately 96 squared kilometers.
+__`01-calculate-habspec.R`__
+Calculate habitat specificity for each species based on the number of habitats they occupy, as per their IUCN species profile.
 
-__`01-cell-size-sensitivity-prep-hansen.R`__
-Same as above, but with the Hansen Forest Cover Change Database.
+__`02-calculate-range.R`__
+Calculate geographic range size using GBIF occurrence data for species monitored in the UK.
 
-__`01-prep-for-earth-engine-bt.R`__
-This script prepares the coordinates of the cells of the BioTIME biodiversity time series in the right format so that they can imported as a fusion table in the Google Earth Engine.
+### Quantify population change (overall trends in population abundance over time and fluctuations over time)
 
-__`01-prep-for-earth-engine-lpd.R`__
-Same as above, but for the coordinates of the cells of the Living Planet Database population time series.
+__`03-derive-pop-change-state-space.R`__
+Calculate population trends (mu values for overall trend) and population fluctuations (sigma values for process error) across the duration of each Living Planet Database time-series. The code uses state-space models.
 
-__`02-luh-land-cover-bt.R`__
-This script extracts the land cover composition of the BioTIME cells over time (from 850 to 2015).
+__`04-derive-pop-change-linear.R`__
+Calculate population trends (slope values for overall trend) across the duration of each Living Planet Database time-series. The code uses general linear models of abundance versus time.
 
-__`02-luh-land-cover-lpd.R`__
-Same as above, but for the cells of the Living Planet Database.
+### Test biogeographic, taxonomic, phylogenetic, rarity, conservation status and threat patterns in population trends and fluctuations
 
-__`02-luh-primf-bt-lpd.R`__
-This script extracts the amount of primary forest cover of the BioTIME and Living Planet Database cells over time (from 850 to 2015).
+__`05-manuscript-analysis.R`__
+Format data and run all statistical models. The script includes
 
-__`02-gfc.js`__
-This script extracts forest cover gain and loss over time using the Google Earth Engine and the Global Forest Change Database. See 01-prep-for-earth-engine-bt.R and 01-prep-for-earth-engine-lpd.R for details on how the cell coordinates were prepared for import in the GEE as fusion tables.
+### Visualise findings
 
-__`02-modis.js`__
-This script extracts land cover composition over time using the Google Earth Engine and the MODIS Landcover Database. See 01-prep-for-earth-engine-bt.R and 01-prep-for-earth-engine-lpd.R for details on how the cell coordinates were prepared for import in the GEE as fusion tables.
+__`06-figures.R`__
+Generate figures included in the manuscript maintext and supplementary information.
 
-__`03-extract-even-periods-peak-forest-loss-bt-lpd.R`__
-This script extracts forest cover change in the same periods as the population and biodiversity monitoring data that were available before and after peak contemporary forest loss. The script contains the calculations for both the population and biodiversity time series.
+### Sensitivity analyses
 
-__`03-luh-habitat-transitions-bt.R`__
-This script integrates the data for all land cover types in the BioTIME cells over time and calculates the dominant land cover at the start and end of the monitoring period for each time series.
+__`07-sensitivity-left-truncation.R`__
+__`08-sensitivity-right-truncation.R`__
+Following Fournier et al. 2019, we tested the time-series we analyzed for site-selection bias. Removing the first five survey points reduces the bias stemming from starting population surveys at points when individual density is high, whereas removing the last five years reduces the bias of starting surveys when species are very rare. The distribution of population trend values across time-series was not sensitive to the omission of the first five (left-truncation) or the last five years (right-truncation) of population records (Figure S8). Overall, our sensitivity analyses confirmed that our findings were robust to the potential confounding effects of differences in monitoring duration, sampling method and site-selection.
 
-__`03-luh-habitat-transitions-lpd.R`__
-Same as above, but for the population time series part of the Living Planet Database.
-
-__`03-modis-habitat-transitions-bt.R`__
-Combine MODIS land cover data from all years in which MODIS data were available (2000 - 2013) and determine dominant habitat type at the start and end of monitoring of the BioTIME biodiversity time series.
-
-__`03-modis-habitat-transitions-lpd.R`__
-Combine MODIS land cover data from all years in which MODIS data were available (2000 - 2013) and determine dominant habitat type at the start and end of monitoring of the Living Planet Database population time series.
-
-__`04-extract-threats-IUCN.R`__
-Extract the types of threats associated with the species part of the Living PLanet and BioTIME databases from their IUCN classifications.
-
-### 5-6. Calculate population and richness change
-
-Note that turnover was calculated by Blowes and Supp _et al._ The code for the rarefaction of the BioTIME database, as well as the calculation of turnover, is <a href="https://doi.org/10.5281/zenodo.1475218" target="_blank">archived on Zenodo</a>. 
-
-__`05-population-models-period1.R`__
-Calculate population change (_mu_ values for overall trend) in the first period - before contemporary peak forest loss. The code uses state-space models.
-
-__`05-population-models-period2.R`__
-Calculate population change (_mu_ values for overall trend) in the second period - after contemporary peak forest loss. The code uses state-space models.
-
-__`05-richness-models-periods1-2.R`__
-Calculate richness change (slopes of species richness over time) in the periods before and after contemporary peak forest loss.
-
-__`06-biotime-popchange.R`__
-Calculate population change (_mu_ values for overall trend) across the duration of each BioTIME population time series. The code uses state-space models.
-
-__`06-population-models-modis.R`__
-Calculate population change (_mu_ values for overall trend) across the period matching the duration of the MODIS database (2000-2013). The code uses state-space models.
-
-__`06-population-models.R`__
-Calculate population change (_mu_ values for overall trend) across the duration of each Living Planet Database time series. The code uses state-space models.
-
-__`06-richness-models-modis.R`__
-Calculate richness change (slopes of species richness over time) across the duration of each BioTIME biodiversity time series.
-
-
-__`06-richness-models.R`__
-Calculate richness change (slopes of species richness over time) across the duration of each BioTIME biodiversity time series.
-
-### 7. Integrate land-use change, population change and biodiversity change data
-
-__`07-time-matching-hansen-bt-cell-sizes.R`__
-This script calculates the amount of forest cover gain and loss at different cell sizes (sensitivity analysis).
-
-__`07-time-matching-hansen-bt.R`__
-This script calculates the amount of forest cover gain and loss across the period of biodiversity monitoring (i.e., matching the time scales of the Hansen Global Forest Change Dataset (available from 2000 to 2016) and the biodiversity time series after 2000). For example, for a biodiversity time series ranging from 2000 to 2009, we calculated forest cover gain and loss also from 2000 to 2009.
-
-__`07-time-matching-hansen-lpd.R`__
-This script calculates the amount of forest cover gain and loss across the period of population monitoring (i.e., matching the time scales of the Hansen Global Forest Change Dataset (available from 2000 to 2016) and the population and biodiversity time series after 2000). For example, for a population time series ranging from 2000 to 2009, we calculated forest cover gain and loss also from 2000 to 2009.
-
-__`07-time-matching-luh-bt-pop-change.R`__
-Same as above, but for population change based on the BioTIME time series.
-
-__`07-time-matching-luh-bt.R`__
-This script calculates the amount of forest cover gain and loss across the period of biodiversity monitoring (i.e., matching the time scales of the Land Use Harmonisation Database and the full duration of the biodiversity time series). For example, for a biodiversity time series ranging from 1990 to 2009, we calculated forest loss also from 1990 to 2009.
-
-__`07-time-matching-luh-lpd.R`__
-This script calculates the amount of forest cover gain and loss across the period of population monitoring (i.e., matching the time scales of the Land Use Harmonisation Database and the full duration of the population time series). For example, for a population time series ranging from 1990 to 2009, we calculated forest cover gain and loss also from 1990 to 2009.
-
-### Categorise time series and calculate lags
-
-__`08-calculate-lags.R`__
-This script calculates our estimates for temporal lag - the time period between when contemporary peak forest loss and maximum population/biodiversity change occurred.
-
-__`08-categorise-before-after-during.R`__
-This script categorises population time series based on whether the population monitoring started before, during or after the all time historic peak forest loss period. Forest loss during the period between 850 and 2015 was estimated using the Land Use Harmonisation Database (see `02-luh-primf-bt-lpd.R`).
-
-### Statistical analyses
-
-__`09-before-after-peak-forest-loss-models.R`__
-Tests if population and biodiversity change differ before and after contemporary peak forest loss.
-
-__`09-forest-cover-change-continuous-models.R`__
-Test the relationships between forest loss, forest gain and population and biodiversity change.
-
-__`09-models-lags.R`__
-Tests if population and biodiversity change lags following contemporary peak forest loss are longer for species with longer generation times.
+Reference:
+Fournier, A. M. V., White, E. R. & Heard, S. B. <a href="https://peerj.com/preprints/27507/" target="_blank">Site-selection bias can drive apparent population declines in long-term studies.</a> doi:10.7287/peerj.preprints.27507v1
 
 # Requirements
 
 ### Software
-R version 3.5.1 or greater
+_R version 3.5.1 or greater_
+
+To download `R`, go to https://www.r-project.org and for `RStudio`, go to https://www.rstudio.com/products/rstudio/download/ .
+If you would like to reproduce our analyses but are not familiar with using `R`, you can find an introduction to `R` and running code from `RStudio` on the <a href="https://ourcodingclub.github.io/2016/11/13/intro-to-r.html" target="_blank">Coding Club website</a>.
 
 ### Packages
-tidyverse, brms, ncdf4, raster, rgdal, splitstackshape, data.table, ggthemes, gridExtra, ggalt, viridis, ggridges, ggstatsplot, rredlist, tidybayes, modelr, bayesplot, sjstats, maps, mapdata, scales, forcats, proj4, hrbrthemes
+The following `R` packages are required for our analyses. If they are not already installed on your computer, you can install them using the function `install.packages("package-name")`, where `package-name` is the name of the specific package, e.g. `install.packages("readr")`. The specific versions of the packages we used are outlined in <a href="https://github.com/gndaskalova/PopChangeRarity/blob/master/package-versions.md" target="_blank">`package-versions.md`</a>. Note that installing a package using `install.packages()` will automatically install the latest version of the package, which might be different from what we used for our analyses. For code that shows how to install older versions of packages, check out this <a href="https://stackoverflow.com/questions/17082341/installing-older-version-of-r-package" target="_blank">thread on Stackoverflow</a>. 
+
+`readr, data.table, tidyr, dplyr, ggplot2, ggExtra, ggthemes, viridis, png, mapdata, maps, gridExtra, broom, MCMCglmm, stargazer, diptest, plotrix, scales, rredlist, stringr, corrplot, ggtree, proj4, ggalt, RColorBrewer, ggridges, ape, forcats, CoordinateCleaner, geosphere, parallel, scrubr`
