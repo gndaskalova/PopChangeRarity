@@ -1,4 +1,4 @@
-_This file contains a list of the versions of the packages with which we ran the analyses in Daskalova et al. All is not decline across global vertebrate populations.__
+__This file contains a list of the versions of the packages with which we ran the analyses in Daskalova et al. All is not decline across global vertebrate populations.__
 
 "ape 5.2"
 [1] "ash 1.0.15"
