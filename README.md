@@ -27,12 +27,14 @@ In the first stage of our analyses, we quantified trends and fluctuations for ea
 <p align="center">
   <img src="/img/SI_workflow1.png" width=800 align="middle">
 </p> 
+_We analyzed vertebrate population time-series from the Living Planet Database (133,092 records) covering the period between 1970 and 2014. These time-series represent repeated monitoring surveys of the number of individuals in a given area (species’ abundance over time), to which we refer as “populations”. Diagram shows one sample population of Red squirrel (Sciurus vulgaris). We quantified two aspects of population change – overall changes in abundance over time (population trend) and abundance variability over time (population fluctuations). We used state-space models that account for observation error and random fluctuations1. See methods for additional details._
 
-In the second stage, we modelled the trend and fluctuation estimates from the first stage across latitude, realm, biome, taxa, rarity metrics, phylogenetic relatedness, species’ conservation status and threat type using a Bayesian modelling framework (Figure S2).
+In the second stage, we modelled the trend and fluctuation estimates from the first stage across latitude, realm, biome, taxa, rarity metrics, phylogenetic relatedness, species’ conservation status and threat type using a Bayesian modelling framework.
 
 <p align="center">
   <img src="/img/SI_workflow2.png" width=800 align="middle">
-</p> 
+</p>
+_We modelled the trend and fluctuation estimates from the first stage (Figure S1) across latitude, realm, biome, taxa, rarity metrics, phylogenetic relatedness, species’ conservation status and threat type using a Bayesian modelling framework2. Each model included a species random intercept effect to account for the possible correlation between the trends of populations from the same species. The prior structure (weakly informative priors) was identical across all models except the phylogeny models from the taxonomic patterns section, where the prior structure allowed for an additional phylogeny random effect. See methods for additional details._
 
 # Data
 
