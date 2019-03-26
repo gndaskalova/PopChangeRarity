@@ -25,13 +25,13 @@ We analyzed vertebrate population time-series from the Living Planet Database (1
 In the first stage of our analyses, we quantified trends and fluctuations for each population using state-space models that account for observation error and random fluctuations36 (Figure S1). 
 
 <p align="center">
-  <img src="/img/Si_workflow1.png" width=800 align="middle">
+  <img src="/img/Si_workflow1.pdf" width=800 align="middle">
 </p> 
 
 In the second stage, we modelled the trend and fluctuation estimates from the first stage across latitude, realm, biome, taxa, rarity metrics, phylogenetic relatedness, species’ conservation status and threat type using a Bayesian modelling framework (Figure S2).
 
 <p align="center">
-  <img src="/img/SI_workflow2.png" width=800 align="middle">
+  <img src="/img/SI_workflow2.pdf" width=800 align="middle">
 </p> 
 
 # Data
