@@ -46,10 +46,35 @@ The population time-series analysed here come from the Living Planet Database, w
 
 ### Key data objects within the scripts and what they contain
 
+__`LPIdata_Feb2016.csv`__
+Raw Living Planet Database population time-series. Following the data use regulations, we cannot upload the raw data here, but they can be downloaded freely from http://www.livingplanetindex.org .
+
 __`global_mus_scaled.csv`__
-Population change (mu values for overall trend), taxa and biome classification and coordinates of the Living Planet Database time series. Calculated using state-space models in `06-population-models.R`.
+Population change (mu values for overall trend and sigma values for population fluctuations), taxa and biome classification and coordinates of the Living Planet Database time-series. Calculated using state-space models in `03-derive-pop-change-state-space.R`.
 
+__`global_slopes.csv`__
+Population change (model slopes of population abundance versus time), taxa and biome classification and coordinates of the Living Planet Database time series. Calculated using general linear models in `04-derive-pop-change-linear.R`.
 
+__`IUCNall.csv`__
+Species IUCN conservation status (Red List level), extracted from https://www.iucnredlist.org .
+
+__`iucn_sp_habitats_count_global.csv`__
+Species habitat specificity (number of distinct habitat in which each species occurs), calculated using the `rredlist` package in `01-calculate-habspec.R`.
+
+__`habspec_profiles.csv`__
+Habitat specificity for species monitored in the UK, derived by surveying species' profiles on the IUCN website https://www.iucnredlist.org .
+
+__`gbif_ranges_clean.csv`__
+Geographic ranges for species monitored in the UK, quantified based on occurrence records from GBIF in `01-calculate-habspec.R`.
+
+__`bird_ranges.csv`__
+Geographic ranges for bird species, extracted from BirdLife http://datazone.birdlife.org/home .
+
+__`PanTHERIA_1-0_WR05_Aug2008.txt`__
+Geographic ranges for mammal species, downloaded from the PanTHERIA database https://esajournals.onlinelibrary.wiley.com/doi/10.1890/08-1494.1 .
+
+__`threats_lpi.RData`__
+Species' threats, extracted from species' IUCN Red List classification https://www.iucnredlist.org .
 
 # Scripts
 
