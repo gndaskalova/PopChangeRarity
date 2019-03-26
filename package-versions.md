@@ -1,135 +1,141 @@
-__This file contains a list of the versions of the packages with which we ran the analyses in Daskalova et al. All is not decline across global vertebrate populations.__
+__This file contains a list of the versions of the packages with which we ran the analyses in _Daskalova et al. All is not decline across global vertebrate populations.___
 
-"ape 5.2"
-[1] "ash 1.0.15"
-[1] "assertthat 0.2.0"
-[1] "backports 1.1.3"
-[1] "base 3.5.1"
-[1] "broom 0.5.1"
-[1] "callr 3.1.1"
-[1] "class 7.3.14"
-[1] "classInt 0.3.1"
-[1] "cli 1.0.1"
-[1] "coda 0.19.2"
-[1] "codetools 0.2.16"
-[1] "colorspace 1.4.0"
-[1] "compiler 3.5.1"
-[1] "CoordinateCleaner 1.0.7"
-[1] "corpcor 1.6.9"
-[1] "corrplot 0.85"
-[1] "crayon 1.3.4"
-[1] "cubature 2.0.3"
-[1] "curl 3.2"
-[1] "data.table 1.11.8"
-[1] "datasets 3.5.1"
-[1] "DBI 1.0.0"
-[1] "desc 1.2.0"
-[1] "devtools 2.0.1"
-[1] "digest 0.6.18"
-[1] "diptest 0.75.7"
-[1] "docopt 0.6.1"
-[1] "dplyr 0.8.0.9000"
-[1] "e1071 1.7.0"
-[1] "extrafont 0.17"
-[1] "extrafontdb 1.0"
-[1] "forcats 0.3.0"
-[1] "fs 1.2.6"
-[1] "generics 0.0.2"
-[1] "geoaxe 0.1.0"
-[1] "geosphere 1.5.7"
-[1] "ggalt 0.6.1"
-[1] "ggExtra 0.8"
-[1] "ggplot2 3.1.0.9000"
-[1] "ggridges 0.5.1"
-[1] "ggthemes 4.0.1"
-[1] "ggtree 1.14.4"
-[1] "glue 1.3.0.9000"
-[1] "graphics 3.5.1"
-[1] "grDevices 3.5.1"
-[1] "grid 3.5.1"
-[1] "gridExtra 2.3"
-[1] "gtable 0.2.0"
-[1] "hms 0.4.2"
-[1] "htmltools 0.3.6"
-[1] "httpuv 1.4.5.1"
-[1] "httr 1.4.0"
-[1] "jsonlite 1.6"
-[1] "KernSmooth 2.23.15"
-[1] "later 0.7.5"
-[1] "lattice 0.20.38"
-[1] "lazyeval 0.2.1"
-[1] "magrittr 1.5"
-[1] "mapdata 2.3.0"
-[1] "maps 3.3.0"
-[1] "MASS 7.3.51.1"
-[1] "Matrix 1.2.15"
-[1] "MCMCglmm 2.26"
-[1] "memoise 1.1.0"
-[1] "methods 3.5.1"
-[1] "mime 0.6"
-[1] "miniUI 0.1.1.1"
-[1] "munsell 0.5.0"
-[1] "nlme 3.1.137"
-[1] "oai 0.2.2"
-[1] "packrat 0.5.0"
-[1] "parallel 3.5.1"
-[1] "pillar 1.3.1"
-[1] "pkgbuild 1.0.2"
-[1] "pkgconfig 2.0.2"
-[1] "pkgload 1.0.2"
-[1] "plotrix 3.7.4"
-[1] "plyr 1.8.4"
-[1] "png 0.1.7"
-[1] "prettyunits 1.0.2"
-[1] "processx 3.2.1"
-[1] "proj4 1.0.8"
-[1] "promises 1.0.1"
-[1] "ps 1.3.0"
-[1] "purrr 0.2.5"
-[1] "qlcMatrix 0.9.7"
-[1] "R6 2.3.0"
-[1] "raster 2.8.4"
-[1] "RColorBrewer 1.1.2"
-[1] "Rcpp 1.0.0"
-[1] "readr 1.3.1"
-[1] "remotes 2.0.2"
-[1] "rgbif 1.1.0"
-[1] "rgdal 1.3.6"
-[1] "rgeos 0.4.2"
-[1] "rlang 0.3.1"
-[1] "rnaturalearth 0.1.0"
-[1] "rprojroot 1.3.2"
-[1] "rredlist 0.5.0"
-[1] "rstudioapi 0.8"
-[1] "Rttf2pt1 1.3.7"
-[1] "rvcheck 0.1.3"
-[1] "scales 1.0.0"
-[1] "scrubr 0.1.1"
-[1] "sessioninfo 1.1.1"
-[1] "sf 0.7.2"
-[1] "shiny 1.2.0"
-[1] "slam 0.1.45"
-[1] "sp 1.3.1"
-[1] "sparsesvd 0.1.4"
-[1] "stargazer 5.2.2"
-[1] "stats 3.5.1"
-[1] "stringi 1.2.4"
-[1] "stringr 1.3.1"
-[1] "tensorA 0.36.1"
-[1] "testthat 2.0.1"
-[1] "tibble 2.0.1"
-[1] "tidyr 0.8.2"
-[1] "tidyselect 0.2.5"
-[1] "tidytree 0.2.1"
-[1] "tools 3.5.1"
-[1] "treeio 1.6.1"
-[1] "units 0.6.2"
-[1] "usethis 1.4.0"
-[1] "utils 3.5.1"
-[1] "viridis 0.5.1"
-[1] "viridisLite 0.3.0"
-[1] "whisker 0.3.2"
-[1] "withr 2.1.2"
-[1] "xml2 1.2.0"
-[1] "xtable 1.8.3"
-[1] "yaml 2.2.0"
+The list below is the output of the relevant `R` session, thus it includes the core packages, as well as their dependencies.
+
+The core packages are:
+
+`readr, data.table, tidyr, dplyr, ggplot2, ggExtra, ggthemes, viridis, png, mapdata, maps, gridExtra, broom, MCMCglmm, stargazer, diptest, plotrix, scales, rredlist, stringr, corrplot, ggtree, proj4, ggalt, RColorBrewer, ggridges, ape, forcats, CoordinateCleaner, geosphere, parallel, scrubr`
+
+ape 5.2
+ash 1.0.15
+assertthat 0.2.0
+backports 1.1.3
+base 3.5.1
+broom 0.5.1
+callr 3.1.1
+class 7.3.14
+classInt 0.3.1
+cli 1.0.1
+coda 0.19.2
+codetools 0.2.16
+colorspace 1.4.0
+compiler 3.5.1
+CoordinateCleaner 1.0.7
+corpcor 1.6.9
+corrplot 0.85
+crayon 1.3.4
+cubature 2.0.3
+curl 3.2
+data.table 1.11.8
+datasets 3.5.1
+DBI 1.0.0
+desc 1.2.0
+devtools 2.0.1
+digest 0.6.18
+diptest 0.75.7
+docopt 0.6.1
+dplyr 0.8.0.9000
+e1071 1.7.0
+extrafont 0.17
+extrafontdb 1.0
+forcats 0.3.0
+fs 1.2.6
+generics 0.0.2
+geoaxe 0.1.0
+geosphere 1.5.7
+ggalt 0.6.1
+ggExtra 0.8
+ggplot2 3.1.0.9000
+ggridges 0.5.1
+ggthemes 4.0.1
+ggtree 1.14.4
+glue 1.3.0.9000
+graphics 3.5.1
+grDevices 3.5.1
+grid 3.5.1
+gridExtra 2.3
+gtable 0.2.0
+hms 0.4.2
+htmltools 0.3.6
+httpuv 1.4.5.1
+httr 1.4.0
+jsonlite 1.6
+KernSmooth 2.23.15
+later 0.7.5
+lattice 0.20.38
+lazyeval 0.2.1
+magrittr 1.5
+mapdata 2.3.0
+maps 3.3.0
+MASS 7.3.51.1
+Matrix 1.2.15
+MCMCglmm 2.26
+memoise 1.1.0
+methods 3.5.1
+mime 0.6
+miniUI 0.1.1.1
+munsell 0.5.0
+nlme 3.1.137
+oai 0.2.2
+packrat 0.5.0
+parallel 3.5.1
+pillar 1.3.1
+pkgbuild 1.0.2
+pkgconfig 2.0.2
+pkgload 1.0.2
+plotrix 3.7.4
+plyr 1.8.4
+png 0.1.7
+prettyunits 1.0.2
+processx 3.2.1
+proj4 1.0.8
+promises 1.0.1
+ps 1.3.0
+purrr 0.2.5
+qlcMatrix 0.9.7
+R6 2.3.0
+raster 2.8.4
+RColorBrewer 1.1.2
+Rcpp 1.0.0
+readr 1.3.1
+remotes 2.0.2
+rgbif 1.1.0
+rgdal 1.3.6
+rgeos 0.4.2
+rlang 0.3.1
+rnaturalearth 0.1.0
+rprojroot 1.3.2
+rredlist 0.5.0
+rstudioapi 0.8
+Rttf2pt1 1.3.7
+rvcheck 0.1.3
+scales 1.0.0
+scrubr 0.1.1
+sessioninfo 1.1.1
+sf 0.7.2
+shiny 1.2.0
+slam 0.1.45
+sp 1.3.1
+sparsesvd 0.1.4
+stargazer 5.2.2
+stats 3.5.1
+stringi 1.2.4
+stringr 1.3.1
+tensorA 0.36.1
+testthat 2.0.1
+tibble 2.0.1
+tidyr 0.8.2
+tidyselect 0.2.5
+tidytree 0.2.1
+tools 3.5.1
+treeio 1.6.1
+units 0.6.2
+usethis 1.4.0
+utils 3.5.1
+viridis 0.5.1
+viridisLite 0.3.0
+whisker 0.3.2
+withr 2.1.2
+xml2 1.2.0
+xtable 1.8.3
+yaml 2.2.0
