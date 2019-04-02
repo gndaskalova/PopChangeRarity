@@ -74,7 +74,7 @@ for(i in 1:nrow(vertebrates_trim)){
 #  for second differences of the log-scale observations.  The REML objective
 #  function uses equations A18-A25 from Humbert et al. (2009).  The three
 #  function arguments are:  theta, vector of parameters (transformed to the
-#  real line), yt, vector of time series observations (log scale), and
+#  real line), yt, vector of time series observations (scaled), and
 #  tt, vector of observation times.  Function performs the differencing.
 negloglike.reml = function(theta, yt, tt)
 {
@@ -121,7 +121,7 @@ if(Observed.t[z] == 0){
   }
 }
 }
-Y.t = Observed.t;        #  Log-transform the observations.
+Y.t = Observed.t;        #  The observations.
 q = length(Y.t) - 1;          #  Number of time series transitions, q.
 qp1 = q + 1;                  #  q+1 gets used a lot, too.
 S.t = T.t[2:qp1] - T.t[1:q];  #  Time intervals.
