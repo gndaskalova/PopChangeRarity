@@ -35,22 +35,14 @@ vert <- distinct(vertebrates)
 vertebrates <- vert %>% group_by(id) %>%
   spread(year, scalepop)
 
-
-#vertebrates <- distinct(vertebrates)  # these are more than they should be! Like way more.
-
 # Count years in each time-series
-#vertebrates$Years <- NA
+vertebrates$Years <- NA
 
 for(i in 1:nrow(vertebrates)){
   vertebrates$Years[i] <- sum(is.na(vertebrates[i, 26:71]) == FALSE)
 }
 
-# Remove populations with less than 5 years of data
-#vertebrates_trim <- filter(vertebrates, Years > 5)
-
 vertebrates_trim <- vertebrates
-
-#vertebrates_trim <- vertebrates    filter(length(unique(year)) > 5) 
 
 # Remove abundance in each year, just to simplify the dataframe
 # Pop change values (mu) will be added to the simplified dataframe later
