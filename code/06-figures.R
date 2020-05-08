@@ -290,7 +290,7 @@ length(unique(mus.habspec$id))
 # Calculate mean pop size for all populations that have count data
 
 # Transform from wide to long format
-LPI.long <- gather(data = LPI, key = "year", value = "pop", select = 26:70)
+LPI.long <- gather(data = LPI, key = "year", value = "pop", 26:70)
 # Get rid of the X in front of years
 LPI.long$year <- parse_number(LPI.long$year)
 
@@ -3713,14 +3713,12 @@ mcmc_preds_range_uk_fl$range <- uk.mus.range$km2_range
     geom_point(data = uk.mus.range, aes(x = log(km2_range), y = sigma.2),
                size = 1, colour = "grey70", alpha = 0.4) +
     geom_hline(yintercept = 0, linetype = "dashed", colour = "grey30") +
-    geom_ribbon(data = mcmc_preds_range_uk, aes(x = log(range), ymin = lwr, ymax = upr), 
+    geom_ribbon(data = mcmc_preds_range_uk_fl, aes(x = log(range), ymin = lwr, ymax = upr), 
                 fill = "black", alpha = 0.5) +
-    geom_line(data = mcmc_preds_range_uk, aes(x = log(range), y = fit), 
+    geom_line(data = mcmc_preds_range_uk_fl, aes(x = log(range), y = fit), 
               colour = "black", size = 1) +
     geom_hline(yintercept = 0, linetype = "dashed") +
-    scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6, 0.8), 
-                       limits = c(-0.03, 0.8),
-                       labels = c("0", "0.2", "0.4", "0.6", "0.8")) +
+    coord_cartesian(ylim = c(0, 0.8)) +
     theme_LPI() + 
     labs(x = bquote(atop(' ', 'Log geographic range ' ~ (km^2))), 
          y = bquote(atop(sigma^2), '')))
