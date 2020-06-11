@@ -1,6 +1,6 @@
 # PopChangeRarity
 
-_This repository contains the code for data extraction, data integration and statistical analyses in "All is not decline across global vertebrate populations"._
+_This repository contains the code for data extraction, data integration and statistical analyses in "Rare and common vertebrates span a wide spectrum of population trends"._
 
 Authors: Gergana N. Daskalova, Isla H. Myers-Smith, John L. Godlee
 
@@ -15,7 +15,7 @@ _Our aim was to determine how the trends and fluctuations of vertebrate populati
 # Preprint
 The manuscript is available as a preprint on bioRxiv.
 
-__Daskalova, G.N., Myers-Smith, I.H. & Godlee, J.L. (2018) Rarity and conservation status do not predict vertebrate population trends. bioRxiv. https://doi.org/10.1101/272898__
+__Daskalova, G.N., Myers-Smith, I.H. & Godlee, J.L. (2018) Rare and common vertebrates span a wide spectrum of population trends. bioRxiv. https://doi.org/10.1101/272898__
 
 # Workflow
 For a detailed explanation of the methods, please see the preprint.
