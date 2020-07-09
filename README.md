@@ -99,7 +99,7 @@ Calculate population trends (slope values for overall trend) across the duration
 ### Test biogeographic, taxonomic, phylogenetic, rarity, conservation status and threat patterns in population trends and fluctuations
 
 __`05-manuscript-analysis.R`__
-Format data and run all statistical models. The script includes
+Format data and run all statistical models.
 
 ### Visualise findings
 
